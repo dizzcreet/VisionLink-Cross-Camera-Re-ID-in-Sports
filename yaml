@@ -1,0 +1,51 @@
+
+---
+
+## 📄 2. report.md (Summary)
+
+```markdown
+# Player Re-Identification – Report
+
+## 🎯 Objective
+To assign consistent player IDs across two different camera feeds: a broadcast and a tactical view.
+
+---
+
+## 🛠️ Approach
+
+1. **Detection**: Used the provided YOLOv11 model to detect players in both videos.
+2. **Feature Extraction**: Extracted the center coordinates of each player's bounding box as spatial features.
+3. **Matching**: Matched players across camera feeds using Euclidean distance between bounding box centers.
+4. **ID Assignment**: Assigned consistent IDs across both feeds based on matches.
+
+---
+
+## 🧪 Techniques Tried
+
+- Spatial matching using center coordinates of bounding boxes
+- Frame-by-frame matching
+- Option to save and visualize matched results
+
+---
+
+## ❗ Challenges Faced
+
+- Limited feature diversity — purely spatial matching can be unreliable for overlapping or similar positions
+- Lack of temporal consistency — IDs aren't persistent over time without tracking
+- No deep features or uniform color processing yet
+
+---
+
+## 🚧 Incomplete? What’s Next?
+
+- Add **tracking algorithms** (e.g. Deep SORT or ByteTrack) to maintain consistent IDs over time
+- Use **color histograms** or **CNN embeddings** to improve player re-identification
+- Optimize performance for real-time processing
+- Extend to detect and re-ID the **ball**
+
+---
+
+## ✅ Outcome
+
+- Basic player detection and ID consistency between camera feeds achieved
+- Functional and modular pipeline built with extensibility in mind
